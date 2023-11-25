@@ -1,0 +1,40 @@
+#importing libraries
+import pandas as pd
+import numpy as np
+from sklearn.preprocessing import OneHotEncoder
+#Retrieving data
+data = pd.read_csv('Employee_data.csv')
+# Converting type of columns to category
+data[‘Country’]=data['Country'].astype('category')
+data['Purchased']=data['Purchased'].astype('category')
+#Assigning numerical values and storing it in another columns
+data['Gen_new']=data['Country'].cat.codes
+data['Rem_new']=data['Purchased'].cat.codes
+#Create an instance of One-hot-encoder
+enc=OneHotEncoder()
+#Passing encoded columns
+'''
+NOTE: we have converted the enc.fit_transform() method to array because the 
+fit_transform method
+of OneHotEncoder returns SpiPy sparse matrix this enables us to save space when we
+have huge number of categorical variables
+'''
+enc_data=pd.DataFrame(enc.fit_transform(data[['Gen_new','Rem_new']]).toarray())
+#Merge with main
+New_df=data.join(enc_data)
+print(New_df)
+# Import libraries
+import numpy as np
+import pandas as pd
+# Import dataset
+df = pd.read_csv('../../data/Iris.csv')
+df['species'].unique()
+# Import label encoder
+from sklearn import preprocessing
+# label_encoder object knows how to understand word labels.
+label_encoder = preprocessing.LabelEncoder()
+# Encode labels in column 'species'.
+df['Country']= label_encoder.fit_transform(df['Country'])
+df['Country'].unique()
+df['Purchased']= label_encoder.fit_transform(df['Purchased'])
+df['Purchased'].unique()

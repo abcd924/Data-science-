@@ -1,0 +1,30 @@
+import pandas as pd
+import numpy as np
+
+data = {'name': ['Alice', 'Bob', 'Cathy', 'David', 'Eva', 'Frank', 'Gina', 'Harry', 'Ivy', 'Jack'],
+        'age': [24, 23, 25, 24, 26, 27, 24, 26, 24, 28],
+        'percentage': [85, 90, 88, 92, 89, 95, 91, 94, 87, 93]}
+df = pd.DataFrame(data)
+
+df.head(10)
+print("Shape:", df.shape)
+print("Number of rows:", df.shape[0])
+print("Number of columns:", df.shape[1])
+print("Data types:", df.dtypes)
+print("Feature names:", df.columns)
+print("Description:", df.describe())
+data = {'name': ['Alice', 'Bob', 'Cathy', 'David', 'Eva', 'Frank', 'Gina', 'Harry', 'Ivy', 'Jack'],
+        'age': [24, 23, 25, 24, 26, 27, 24, 26, 24, 28],
+        'percentage': [85, 90, 88, 92, 89, 95, 91, 94, 87, 93]}
+
+# Adding 5 rows with duplicate values and missing values
+data = data.append(data.head(5), ignore_index=True)
+data.loc[10:14, 'age'] = np.nan
+data.loc[10:14, 'percentage'] = np.nan
+
+# Adding a column 'remarks' with empty values
+data['remarks'] = ""
+
+df = pd.DataFrame(data)
+
+df.head(15)

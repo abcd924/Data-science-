@@ -1,0 +1,24 @@
+import numpy as np
+import matplotlib.pyplot as plt
+data={'c':20,'c++':15,'Java':30,'Python':35}
+subject=list(data.keys())
+marks=list(data.values())
+fig=plt.figure(figsize=(10,5))
+#creating the bar plot 
+plt.bar(subject,marks,color='pink',width=0.4)
+plt.xlabel("subjects offered")
+plt.ylabel("no of students enrolled")
+plt.title("student enrolled in different courses ")
+plt.show()
+
+
+
+
+
+
+
+import pandas as pd
+import matplotlib.pyplot as plt
+iris=pd.read_csv("C:/Users/Lenovo/Desktop/Documents/DATA SCIENCE PROGRAMS/irisdataset.csv")
+plt.hist('species',data=iris)
+plt.show()

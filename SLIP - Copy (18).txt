@@ -1,0 +1,24 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+df = pd.read_csv('iris.csv')
+def draw_box_plots(df):
+    plt.figure(figsize=(12, 6))
+
+    for i in range(4):
+        plt.subplot(2, 2, i + 1)
+        sns.boxplot(x='species', y=df.columns[i], data=df)
+        plt.title(df.columns[i])
+
+    plt.tight_layout()
+    plt.show()
+draw_box_plots(df)
+
+
+
+import pandas as pd
+import matplotlib.pyplot as plt
+df=pd.read_csv("path")
+df.head(5)
+df.tail(5)
+df.sample(10)

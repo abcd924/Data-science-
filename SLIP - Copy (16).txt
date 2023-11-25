@@ -1,0 +1,36 @@
+from matplotlib import pyplot as plt
+import numpy as np
+# Creating dataset
+cars = ['DS', 'DSA', 'C++',
+'DA', 'C', 'JAVA']
+data = [23, 17, 35, 29, 12, 41]
+# Creating plot
+fig = plt.figure(figsize =(10, 7))
+plt.pie(data, labels = cars)
+# show plot
+plt.show()
+
+
+
+
+
+
+
+
+
+import pandas as pd
+import numpy as np
+extract data = {
+‘Name’ : [‘Hitesh’ ,’Imran Qureshi’ , ‘Faizan’]
+‘Grad_Per’ : [50 , 100 , 50 ]
+‘Age’ : [19 ,30 , 31]
+}
+df = pd.DataFrame(exam_data , index=labels)
+print(df)
+df.percentile()
+df.mean()
+df[‘Grad_Per’].mean()
+
+
+
+

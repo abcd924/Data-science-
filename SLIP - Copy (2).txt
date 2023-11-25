@@ -1,0 +1,23 @@
+import pandas as pd
+import numpy as np
+df = pd.read_csv("/Users/hitesh/Downloads/Placement_Data_Full_Class.csv")
+df.head()
+df.fillna(df.mean())
+df.fillna(df.median())
+df['salary'] = df['salary'].fillna(df['salary'].mode()[0])
+
+
+
+
+
+
+
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+# define data values
+Data = read_csv(‘\File Path’)
+x = Data[‘Name’] # X-axis points
+y = Data[‘Salaty’]# Y-axis points
+plt.plot(x, y) # Plot the chart
+plt.show() # display

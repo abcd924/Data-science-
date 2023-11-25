@@ -1,0 +1,41 @@
+from sklearn.preprocessing import MinMaxScaler, StandardScaler, Normalizer, Binarizer
+import pandas as pd
+
+# Load the dataset
+data = pd.read_csv('winequality-red.csv')
+
+# Task a: Rescaling
+scaler = MinMaxScaler()
+scaled_data = scaler.fit_transform(data)
+
+# Task b: Standardizing Data
+scaler = StandardScaler()
+standardized_data = scaler.fit_transform(data)
+
+# Task c: Normalizing Data
+scaler = Normalizer()
+normalized_data = scaler.fit_transform(data)
+
+# Task d: Binarizing Data
+threshold = 0.5
+binarizer = Binarizer(threshold=threshold)
+binarized_data = binarizer.fit_transform(data)
+
+# To store the results, we can create new dataframes
+scaled_df = pd.DataFrame(scaled_data, columns=data.columns)
+standardized_df = pd.DataFrame(standardized_data, columns=data.columns)
+normalized_df = pd.DataFrame(normalized_data, columns=data.columns)
+binarized_df = pd.DataFrame(binarized_data, columns=data.columns)
+
+# Display the first 5 rows of each dataframe
+print("Rescaled Data:")
+print(scaled_df.head())
+
+print("\nStandardized Data:")
+print(standardized_df.head())
+
+print("\nNormalized Data:")
+print(normalized_df.head())
+
+print("\nBinarized Data:")
+print(binarized_df.head())

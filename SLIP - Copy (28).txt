@@ -1,0 +1,40 @@
+import pandas as pd
+from sklearn.preprocessing import MinMaxScaler, StandardScaler, Normalizer, Binarizer
+import numpy as np
+
+# Creating a new dataframe with specified columns and data
+data = {'name': ['Tom', 'Nick', 'John', 'Jill', 'Mark', 'Jane', 'Frank', 'Ryan', 'Anna', 'James'],
+        'age': [24, 22, 19, 21, 27, 22, 34, 45, 26, 33],
+        'percentage': [85, 77, 66, 78, 90, 76, 80, 81, 75, 68]}
+df = pd.DataFrame(data)
+
+# Task 1: Add 10 rows to the dataframe
+for i in range(10):
+    df = df.append({'name': f'New {i}', 'age': np.random.randint(20, 50), 'percentage': np.random.randint(50, 100)}, ignore_index=True)
+
+print("\nOriginal Data:")
+print(df.head())
+
+# Task 2: Print shape, number of rows-columns, data types, feature names and the description of the data
+print("\nShape of the dataframe:", df.shape)
+print("Number of rows and columns:", df.shape[0], '-', df.shape[1])
+print("Data types:", df.dtypes)
+print("Feature names:", df.columns)
+print("Description of the dataframe:", df.describe())
+
+# Task 3: View basic statistical details of the data
+print("\nBasic statistical details of the dataframe:")
+print(df.describe())
+
+# Task 4: Add 5 rows with duplicate values and missing values
+df = df.append([{'name': 'Tom', 'age': 24, 'percentage': 85},
+                {'name': 'Jane', 'age': 22, 'percentage': np.nan},
+                {'name': 'John', 'age': 19, 'percentage': 66},
+                {'name': 'James', 'age': 33, 'percentage': 68},
+                {'name': np.nan, 'age': 40, 'percentage': 80}], ignore_index=True)
+
+# Add a column 'remarks' with empty values
+df['remarks'] = ""
+
+print("\nUpdated Data:")
+print(df)

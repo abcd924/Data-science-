@@ -1,0 +1,28 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+iris=pd.read_csv("C:/Users/Lenovo/Desktop/Documents/DATA SCIENCE PROGRAMS/irisdataset.csv")
+fig=iris[iris.species=='iris_setosa'].plot.scatter(x='petallength',y='petal width',color='orange',label='setosa')
+iris[iris.species=='iris_versicolor'].plot.scatter(x='petallength',y='petal width',color='blue',label='versicolor',ax=fig)
+fig.set_xlabel("petal length")
+fig.set_ylabel("petal width")
+fig.set_title("petal length vs width")
+fig=plt.gcf()
+fig.set_size_inches(12,8)
+plt.show()
+
+
+
+data = [
+    {'name': 'John', 'age': 25, 'salary': 70000, 'department': 'Engineering'},
+    {'name': 'Lisa', 'age': 35, 'salary': 80000, 'department': 'Marketing'},
+    {'name': 'Mike', 'age': 45, 'salary': 90000, 'department': 'Sales'},
+    {'name': 'Anna', 'age': 30, 'salary': 75000, 'department': 'Engineering'},
+    {'name': 'Tom', 'age': 40, 'salary': 85000, 'department': 'Marketing'},
+    {'name': 'Nick', 'age': 28, 'salary': 77000, 'department': 'Sales'},
+    {'name': 'Sara', 'age': 32, 'salary': 79000, 'department': 'Engineering'},
+    {'name': 'Paul', 'age': 42, 'salary': 91000, 'department': 'Marketing'},
+    {'name': 'Emma', 'age': 37, 'salary': 80000, 'department': 'Sales'},
+    {'name': 'Sam', 'age': 29, 'salary': 74000, 'department': 'Engineering'}
+]
+df = pd.DataFrame(data)
+print(df)
